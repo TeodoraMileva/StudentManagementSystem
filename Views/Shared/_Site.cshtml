@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Http;
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/styles/site.css" />
+</head>
+<body>
+    <div class="container header">
+        <div class="left">
+            <h1>Student Management System</h1>
+        </div>
+        <span class="right">Hello, @(String.IsNullOrEmpty(this.Context.Session.GetString("loggedUser"))
+                                        ? "Anonymous"
+                                        : this.Context.Session.GetString("loggedUser")
+                                    )
+        </span>
+    </div>
+
+    <div class="container menu">
+        <ul>
+            <li>
+                <a href="/Home/Index">HOME</a>
+            </li>
+            @if (!String.IsNullOrEmpty(this.Context.Session.GetString("loggedUser")))
+            {
+                <li>
+                    <a href="/Students/Index">STUDENTS</a>
+                </li>
+                <li>
+                    <a href="/Instructors/Index">INSTRUCTORS</a>
+                </li>
+                <li>
+                    <a href="/Courses/Index">COURSES</a>
+                </li>
+                <li>
+                    <a href="/Home/Logout">LOG OUT</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="/Home/Login">LOG IN</a>
+                </li>
+                <li>
+                    <a href="/Students/Create">SIGN UP</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>
+

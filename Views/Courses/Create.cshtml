@@ -1,0 +1,65 @@
+﻿@model StudentManagementSystem.ViewModels.Courses.CreateVM
+@{
+    ViewBag.Title = "CREATE COURSE";
+}
+<fieldset>
+    <legend>CREATE COURSE</legend>
+    <form action="/Courses/Create" method="post">
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.CourseName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.CourseName)
+                    <br/>
+                    @Html.ValidationMessageFor(m => m.CourseName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.InstructorId)
+                </div>
+                <div class="col-2">
+                    <select name="InstructorId">
+                        <option value="0">Select instructor</option>
+                        @foreach (var item in Model.Instructors)
+                        {
+                            <option value="@item.Id">@item.Rank @item.FirstName @item.LastName </option>
+                        }
+                    </select>
+                    <br />
+                    @Html.ValidationMessageFor(m => m.InstructorId)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Duration)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Duration)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.Duration)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.CourseDescription)
+                </div>
+                <div class="col-2">
+                    @Html.TextAreaFor(m => m.CourseDescription)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.CourseDescription)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="right">
+                        <a href="/Courses/Index" class="backbutton">Back</a>
+                        <input type="submit" value="Save" class="savebutton"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>

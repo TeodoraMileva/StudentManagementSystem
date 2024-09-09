@@ -1,0 +1,70 @@
+﻿@model StudentManagementSystem.ViewModels.Instructors.DetailsVM
+@using StudentManagementSystem.Entities;
+@{
+    ViewBag.Title = "INSTRUCTOR INFORMATION";
+}
+
+<fieldset class="firstfieldset">
+    <legend>INSTRUCTOR</legend>
+    <div class="grid">
+        <div class="row">
+            <div class="col-1 b">
+                First Name
+            </div>
+            <div class="col-2">
+                @Model.Instructor.FirstName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 b">
+                Last Name
+            </div>
+            <div class="col-2">
+                @Model.Instructor.LastName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 b">
+                Rank
+            </div>
+            <div class="col-2">
+                @Model.Instructor.Rank
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 b">
+                Work Experience
+            </div>
+            <div class="col-2">
+                @Model.Instructor.WorkExperience years
+            </div>
+        </div>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>INSTRUCTOR'S COURSES</legend>
+    <div class="grid">
+        <div class="row">
+            <div class="col-2 b">
+                Course Name
+            </div>
+            <div class="col-1 b">
+                Duration
+            </div>
+        </div>
+        @foreach (Course c in Model.Items)
+        {
+            <div class="row">
+                <div class="col-2">
+                    @c.CourseName
+                </div>
+                <div class="col-1">
+                    @c.Duration months
+                </div>
+                <div class="col-2">
+                    <a href="/Instructors/DetailsDelete?CourseId=@c.Id&InstructorId=@Model.InstructorId" onclick="return confirm('Delete this item?')">delete</a>
+                </div>
+            </div>
+        }
+    </div>
+</fieldset>

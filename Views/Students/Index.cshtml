@@ -1,0 +1,49 @@
+﻿@model StudentManagementSystem.ViewModels.Students.IndexVM
+@using StudentManagementSystem.Entities
+@{
+    ViewBag.Title = "STUDENTS";
+}
+<div class="grid">
+        <div class="row">
+            <div class="col-1 b">
+                Username
+            </div>
+            <div class="col-1 b">
+                First Name
+            </div>
+            <div class="col-1 b">
+                Last Name
+            </div>
+            <div class="col-2 b">
+                Specialty
+            </div>
+            <div class="col-1 b">
+                Year
+            </div>
+        </div>
+        @foreach (Student item in Model.Items)
+        {
+            <div class="row">
+                <div class="col-1">
+                    @item.Username
+                </div>
+                <div class="col-1">
+                    @item.FirstName
+                </div>
+                <div class="col-1">
+                    @item.LastName
+                </div>
+                <div class="col-2">
+                    @item.Specialty
+                </div>
+                <div class="col-1">
+                    @item.Year
+                </div>
+                <div class="col-2">
+                    <a href="/Students/Edit?id=@item.Id">edit</a>
+                    <a href="/Students/Delete?id=@item.Id" onclick="return confirm('Delete this item?')">delete</a>
+                    <a href="/Students/Details?StudentId=@item.Id">courses</a>
+                </div>
+            </div>
+        }
+    </div>

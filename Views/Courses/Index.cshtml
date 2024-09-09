@@ -1,0 +1,39 @@
+﻿@model StudentManagementSystem.ViewModels.Courses.IndexVM
+@using StudentManagementSystem.Entities
+@{
+    ViewBag.Title = "COURSES";
+}
+<div class="grid">
+    <div class="row">
+        <div class="col-3">
+            <a href="/Courses/Create" class="button">NEW</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 b">
+            Course Name
+        </div>
+        <div class="col-1 b">
+            Duration
+        </div>
+        <div class="col-1 b">
+
+        </div>
+    </div>
+    @foreach (Course item in Model.Items)
+    {
+        <div class="row">
+            <div class="col-2">
+                @item.CourseName
+            </div>
+            <div class="col-1">
+                @item.Duration months
+            </div>
+            <div class="col-2">
+                <a href="/Courses/Edit?id=@item.Id">edit</a>
+                <a href="/Courses/Delete?id=@item.Id" onclick="return confirm('Delete this item?')">delete</a>
+                <a href="/Courses/Details?CourseId=@item.Id">details</a>
+            </div>
+        </div>
+    }
+</div>

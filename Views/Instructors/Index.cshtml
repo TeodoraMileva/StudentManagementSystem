@@ -1,0 +1,51 @@
+﻿@model StudentManagementSystem.ViewModels.Instructors.IndexVM
+@using StudentManagementSystem.Entities
+@{
+    ViewBag.Title = "INSTRUCTORS";
+}
+<div class="grid">
+    <div class="row">
+        <div class="col-3">
+            <a href="/Instructors/Create" class="button">NEW</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1 b">
+            First Name
+        </div>
+        <div class="col-1 b">
+            Last Name
+        </div>
+        <div class="col-2 b">
+            Rank
+        </div>
+        <div class="col-2 b">
+            Work Experience
+        </div>
+        <div class="col-1 b">
+
+        </div>
+    </div>
+    @foreach (Instructor item in Model.Items)
+    {
+        <div class="row">
+            <div class="col-1">
+                @item.FirstName
+            </div>
+            <div class="col-1">
+                @item.LastName
+            </div>
+            <div class="col-2">
+                @item.Rank
+            </div>
+            <div class="col-2">
+                @item.WorkExperience years
+            </div>
+            <div class="col-2">
+                <a href="/Instructors/Edit?id=@item.Id">edit</a>
+                <a href="/Instructors/Delete?id=@item.Id" onclick="return confirm('Delete this item?')">delete</a>
+                <a href="/Instructors/Details?InstructorId=@item.Id">courses</a>
+            </div>
+        </div>
+    }
+</div>

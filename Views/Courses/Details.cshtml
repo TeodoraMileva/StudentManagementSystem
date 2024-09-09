@@ -1,0 +1,89 @@
+﻿@model StudentManagementSystem.ViewModels.Courses.DetailsVM
+@using StudentManagementSystem.Entities;
+@{
+    ViewBag.Title = "COURSE INFORMATION";
+}
+
+<fieldset class="firstfieldset">
+    <legend>COURSE</legend>
+    <div class="grid">
+        <div class="row">
+            <div class="col-1 b">
+                Course Name
+            </div>
+            <div class="col-2">
+                @Model.Course.CourseName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 b">
+                Instructor
+            </div>
+            <div class="col-2">
+                @Model.Course.ParentInstructor.Rank @Model.Course.ParentInstructor.FirstName @Model.Course.ParentInstructor.LastName
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 b">
+                Duration
+            </div>
+            <div class="col-1">
+                @Model.Course.Duration months
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 b">
+                Course Description
+            </div>
+            <div class="col-3">
+                @Model.Course.CourseDescription
+            </div>
+        </div>
+    </div>
+</fieldset>
+<a href="/Courses/Enroll?CourseId=@Model.CourseId" class="button">ENROLL</a>
+<fieldset class="secondfieldset">
+    <legend>ENROLLED STUDENTS</legend>
+    <div class="grid">
+        <div class="row">
+            <div class="col-1 b">
+                Username
+            </div>
+            <div class="col-1 b">
+                First Name
+            </div>
+            <div class="col-1 b">
+                Last Name
+            </div>
+            <div class="col-2 b">
+                Specialty
+            </div>
+            <div class="col-1 b">
+                Year
+            </div>
+        </div>
+        @foreach (Enrollment e in Model.Items)
+        {
+            <div class="row">
+                <div class="col-1">
+                    @e.Student.Username
+                </div>
+                <div class="col-1">
+                    @e.Student.FirstName
+                </div>
+                <div class="col-1">
+                    @e.Student.LastName
+                </div>
+                <div class="col-2">
+                    @e.Student.Specialty
+                </div>
+                <div class="col-1">
+                    @e.Student.Year
+                </div>
+                <div class="col-2">
+                    <a href="/Courses/DetailsDelete?StudentId=@e.StudentId&CourseId=@e.CourseId" onclick="return confirm('Delete this item?')">delete</a>
+                </div>
+            </div>
+        }
+    </div>
+</fieldset>

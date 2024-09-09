@@ -1,0 +1,130 @@
+﻿body {
+    font-family: Montserrat, sans-serif;
+}
+
+.header{
+    margin-top: 10px;
+}
+
+.menu {
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: white;
+    color: #008CBA;
+    border: 1px solid #008CBA;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.button:hover{
+    background-color: #008CBA;
+    color: white;
+}
+
+.savebutton {
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: #008CBA;
+    color: white;
+    border: 0;
+    font-size: 15px;
+}
+
+.savebutton:hover {
+    background:  #006080;
+}
+
+.backbutton{
+    color: #008CBA;
+}
+
+.firstfieldset{
+    margin-bottom: 20px;
+}
+
+.secondfieldset{
+    margin-top: 20px;
+}
+
+.container {
+    display: inline-block;
+    width: 100%;
+}
+
+.pager a {
+    text-decoration: none;
+    color: blue;
+    margin: 0 2px;
+}
+
+.menu ul {
+    list-style:none;
+}
+
+.menu ul li {
+    float:left;
+    margin:0px 10px;
+}
+
+.menu ul li a {
+    text-decoration:none;
+    color:blue;
+}
+
+.grid {
+    display: inline-block;
+    width:100%;
+}
+
+.grid input[type=text] {
+    width: 300px;
+}
+
+.grid input[type=password] {
+    width: 300px;
+}
+
+.grid .row {
+    display: inline-block;
+    width: 100%;
+    margin:6px 0px;
+}
+
+.grid .row .col-1 {
+    float: left;
+    width: 150px;
+}
+
+.grid .row .col-2 {
+    float: left;
+    width: 300px;
+}
+
+.grid .row .col-3 {
+    float: left;
+    width: 450px;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.red {
+    color: red;
+}
+
+.b {
+    font-weight: bold;
+}

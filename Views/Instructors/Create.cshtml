@@ -1,0 +1,55 @@
+﻿@model StudentManagementSystem.ViewModels.Instructors.CreateVM
+@{
+    ViewBag.Title = "CREATE INSTRUCTOR";
+}
+<fieldset>
+    <legend>CREATE INSTRUCTOR</legend>
+    <form action="/Instructors/Create" method="post">
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.FirstName)
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.LastName)
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Rank)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Rank)
+                    @Html.ValidationMessageFor(m => m.Rank)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.WorkExperience)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.WorkExperience)
+                    @Html.ValidationMessageFor(m => m.WorkExperience)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="right">
+                        <a href="/Instructors/Index" class="backbutton">Back</a>
+                        <input type="submit" value="Save" class="savebutton"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
